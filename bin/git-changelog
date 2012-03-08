@@ -15,9 +15,9 @@ if test "$1" = "--list"; then
   fi
 else
   tmp="/tmp/changelog"
-  printf $HEAD > $tmp
+  echo -e $HEAD > $tmp
   git-changelog --list >> $tmp
-  printf '\n' >> $tmp
+  echo -e '' >> $tmp
   if [ -f $CHANGELOG ]; then cat $CHANGELOG >> $tmp; fi
   mv $tmp $CHANGELOG
   test -n "$EDITOR" && $EDITOR $CHANGELOG
